@@ -2,10 +2,10 @@
     <div id="menu">
     <ul>
         <li>
-            <a href="_blank">News</a>
+            <a href="?News">News</a>
         </li>
         <li>
-           <a href="_blank">Contact</a>
+           <a href="?Contact">Contact</a>
         </li>
     </ul>
 </div>

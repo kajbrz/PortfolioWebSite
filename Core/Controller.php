@@ -5,6 +5,7 @@
         private $modelBelongsToClass;
         private $viewBelongsToClass;
         private $nameOfController;
+        
         public $records = "default";
         
         
