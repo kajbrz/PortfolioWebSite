@@ -74,6 +74,8 @@ div#mininews
 	width: 47%;
 	float: left;
 	height: 50%;
+	
+	display: table;
 }
 div#mininews h2
 {
@@ -88,7 +90,11 @@ div#mininews h5
 {
     
 }
-div#mininews h4
+div#upper
+{	
+	display: table-row;
+}
+div#lower
 {
     color: #444b7b;
     margin-bottom: -5px;
@@ -97,6 +103,9 @@ div#mininews h4
 	position: absolute;
 	
     border-bottom: dotted #364783;
+	vertical-align: bottom;
+	
+	display: table-row;
 }
 
 div#mininews img

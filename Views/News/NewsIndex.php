@@ -3,6 +3,7 @@
     while ($row = $this->records->fetch_assoc())
     {
         echo "<div id=\"mininews\">";
+        echo "<div id=\"upper\">";
         
         echo "<a href=\"?News&show=".$row['news_id']."\"\>";
         
@@ -23,11 +24,14 @@
 
         echo $row['news_text']   ;
         echo "</h5>";
-
-        echo "<h4>";
-        echo $row['news_author']   ; 
-        echo "</h4>";
         
+        echo "</div>";
+        
+        echo "<div id=\"lower\">";
+        echo "<div><h4>";
+        echo $row['news_author']   ; 
+        echo "</h4></div>";
+        echo "</div>";
         echo "</div>";
     }
 ?>
