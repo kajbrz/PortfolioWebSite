@@ -1,5 +1,6 @@
 body
 {
+	overflow-y: scroll;
 	font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
     margin: 0;
     padding: 0 auto;
@@ -23,16 +24,17 @@ div {
 
 div#main {
     margin: 0px auto;
-    #background: url('../Images/logo.png') no-repeat top right;
+    background: url('../Images/logo.png') no-repeat top right;
     color: #000000;
 }
 
 
 div#page
 {
-    height: 78%;
-
+    height: 83%;
+	
     shadow: 10px;
+	
 }
 div#header
 {
@@ -54,7 +56,79 @@ div#news
     border: 1px solid #BFBFBF;
     box-shadow: 2px 2px 2px #777777;
     border-radius: 3px;
+	
 }
+div#mininews
+{
+    background: -webkit-linear-gradient(left , #BFBFBF, #6b6b6b); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #BFBFBF, #6b6b6b); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #BFBFBF, #6b6b6b); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #BFBFBF, #6b6b6b ); /* Standard syntax (must be last) */
+    
+    margin: 10px 0px 0px 10px;
+    padding: 10px;
+    
+    border: 1px solid #BFBFBF;
+    box-shadow: 2px 2px 2px #777777;
+    border-radius: 3px;
+	width: 47%;
+	float: left;
+	height: 50%;
+}
+div#mininews h2
+{
+    margin-top: -10px;
+    color: #222b75;
+}
+div#mininews h3
+{	
+	
+}
+div#mininews h5
+{
+    
+}
+div#mininews h4
+{
+    color: #444b7b;
+    margin-bottom: -5px;
+    text-align: right;
+	height: auto;
+	position: absolute;
+	
+    border-bottom: dotted #364783;
+}
+
+div#mininews img
+{
+	width: 20%;
+	max-width: 250px;
+	display: none;
+	height: auto;
+}
+div#mininews img#title
+{
+	width: 10%;
+	margin: 0;
+	padding: 0;
+	opacity: 0.5;
+	height: 10px;
+	max-width: 250px;
+	display: block;
+	position: absolute;
+	height: auto;
+}
+
+div#news img
+{
+	width: 20% auto;
+	max-width: 250px;
+	max-height: 250px;
+	display: block;
+	position: left;
+	height: auto;
+}
+
 
 div#news h2
 {
@@ -74,6 +148,56 @@ div#news h4
     border-bottom: dotted #364783;
 }
 
+div#comment
+{
+	font-size: 12px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+div#comment b
+{
+	color: #444b7b;
+}
+div#text
+{
+	margin: 0px 0px 7px 20px;
+	padding: 0px;
+	font-size: 14px;
+}
+/* form */
+form
+{
+	border-top:  dotted #364783;
+	margin: 0 0 5px 40px;
+	padding: 10px;
+	width: 50%;
+	text-align: right;
+	vertical-align: middle;
+}
+
+form input
+{
+	background: #9a9fc7;
+	margin: 0 0 10px 0;
+	padding: 0px;
+	width 30%;
+	text-align: right;
+	float: right;
+}
+
+form textarea
+{	
+	background: #9a9fc7;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 20%;
+}
+
+
+
+/* ############# */
 div#header h1
 {
     font-family:arial, helvetica, sans-serif;
@@ -123,9 +247,11 @@ div#menu li a:hover {
 
 div#foot
 {
-    height: 10%;
+	margin-top: 10px;
+	margin-bootom: -10px;
+    height: 5%;
     width: 100%;
-    position: fixed;
+	float: left;
     color: grey;
     text-align: center;
     vertical-align: bottom;

@@ -3,6 +3,7 @@
     { 
         public function getRecord(&$dest, $id)
         {
+            $id = $this->connection->real_escape_string(htmlspecialchars($id));
             $dest = $this->connection->query(
                 "SELECT * FROM news
                     WHERE news_id=".$id
@@ -11,8 +12,10 @@
         public function getRecords(&$dest)
         {
             $dest = $this->connection->query(
-                "SELECT * FROM news"
+                "SELECT * FROM `news`
+                    ORDER BY `news_id` DESC"
                 );
+            
         }
         public function getCommentsFromArticle(&$dest, $id)
         {
@@ -23,15 +26,8 @@
         }
         public function addComment($id, $nick, $comment)
         {
-            #{
-                #here you should check the correct of inputs    
-            #}
             $now = time();
-            /*
-            $id = strip_tags($id);
-            $nick = strip_tags($nick);
-            $comment = strip_tags($comment);
-            */
+            
             $id = $this->connection->real_escape_string(htmlspecialchars($id));
             $nick = $this->connection->real_escape_string(htmlspecialchars($nick));
             $comment = $this->connection->real_escape_string(htmlspecialchars($comment));
@@ -41,6 +37,15 @@
                     VALUES('".$id."','".$nick."','".$comment."','".$now."')"
             );
             
+        }
+        
+        public function cutText(&$text, $countOfLetters)
+        {
+            if(strlen($text) > $countOfLetters)
+            {
+                $text = substr($text, 0, $countOfLetters);
+                $text = $text."...";
+            }
         }
     }
 ?>

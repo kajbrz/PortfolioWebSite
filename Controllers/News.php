@@ -6,7 +6,7 @@
         {
             $keys = (array_keys($query));
             
-            if ($keys[1] != null)
+            if (@$keys[1] != null)
             {
                 switch ($keys[1])
                 {
@@ -35,7 +35,7 @@
            
         }
         
-        public function index()
+        private function index()
         {
             if($this->modelBelongsToClass != null)
                 $this->modelBelongsToClass->getRecords($this->records);
@@ -44,7 +44,7 @@
             include("./Views/News/NewsIndex.php");
             include("./Views/Foot.php");
         }
-        public function show($id)
+        private function show($id)
         {
             $comments = null;
             if($this->modelBelongsToClass != null)
@@ -59,11 +59,21 @@
             include("./Views/Foot.php");
         }
         
-        public function newcomment($id, $nick, $comment)
+        private function newcomment($id, $nick, $comment)
         {
             $this->modelBelongsToClass->addComment($id, $nick, $comment);
             $url = "?News&show=".$id;
             header("Location: ".$url);
+        }
+        
+        private function parseText(&$text)
+        {
+            $this->modelBelongsToClass->parseText($text);
+        }
+        
+        private function cutText(&$text, $countOfLetters)
+        {
+            $this->modelBelongsToClass->cutText($text, $countOfLetters);
         }
     }
     

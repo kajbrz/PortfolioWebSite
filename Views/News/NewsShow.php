@@ -9,6 +9,8 @@
             echo date("Y/m/d",  $row['news_date']).": ".$row['news_title'] ;
             echo "</h2>";
             
+            $this->parseText($row['news_text']);
+            
             echo "<h5>";
             echo $row['news_text']   ;
             echo "</h5>";
@@ -25,12 +27,12 @@
             {
                 echo "<div id=\"comment\">";
                 
-                echo "<p>User::setComment(string <b id=\"user\">";
+                echo "User::setComment(string <b id=\"user\">";
                 echo $row['com_author'] ;
                 echo "</b>)<br/>{</br>";
                 
-                echo $row['com_text']   ;
-                echo "<br/>}<small>".date("Y.m.d G:i",  $row['com_date'])."</small>;</p> ";
+                echo "<div id=\"text\">".$row['com_text']."</div>";
+                echo "} ".date("Y.m.d G:i",  $row['com_date'])."; ";
                 
                 echo "</div>";
             }

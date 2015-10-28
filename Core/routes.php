@@ -1,17 +1,39 @@
 <?php
     require_once('Controller.php');
     require_once('Model.php');
+    require_once('Variables.php');
     #controllers
     require_once('./Controllers/News.php');
+    require_once('./Controllers/Contact.php');
+    require_once('./Controllers/Admin.php');
     #fill up the routing 
     function route($controller, $query)
     {
         $controllers = array(
-            "News"  
+            "News",
+            "Contact",
+            "Admin"
         );
         if (in_array(@$controller, $controllers))
         {
-            $myController = new NewsController($controller);    
+            switch($controller)
+            {
+                case "News":
+                    {
+                        $myController = new NewsController($query);
+                        break;
+                    }
+                case "Contact":
+                    {
+                        $myController = new ContactController($query);
+                        break;
+                    }
+                case "Admin":
+                    {
+                        $myController = new AdminController($query);
+                        break;
+                    }
+            }
             $myController->render($query);
         }
         else
