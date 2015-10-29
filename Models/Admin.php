@@ -29,7 +29,13 @@
         
         public function editNews($id, $author, $title, $imgtitle, $password, $text)
         {
-        
+            $this->checkPassword($password);
+            if(!$password)
+            {
+                error_log("Password is invalid");
+                return;
+            }
+            
             $id = $this->connection->real_escape_string(htmlspecialchars($id));
             $title = $this->connection->real_escape_string(htmlspecialchars($title));
             $author = $this->connection->real_escape_string(htmlspecialchars($author));
