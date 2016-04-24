@@ -11,15 +11,20 @@
                 switch ($keys[1])
                 {
                     case 'show':
-                        {
-                            $this->show($query[$keys[1]]);
-                            break;
-                        }
+                    {
+                        $this->show($query[$keys[1]]);
+                        break;
+                    }
                     case 'newcomment':
-                        {
-                            $this->newcomment($query[$keys[1]], $query[$keys[2]], $query[$keys[3]]);
-                            break;
-                        }
+                    {
+                        $this->newcomment($query[$keys[1]], $query[$keys[2]], $query[$keys[3]]);
+                        break;
+                    }
+                    case 'mobile' :
+                    {
+                        $this->mobile();
+                        break;
+                    }
                 }
             }
             else
@@ -31,8 +36,7 @@
         }
         protected function createModel()
         {
-           $this->modelBelongsToClass = new NewsModel("blog", 3306, "localhost", "root", "michauu33");
-           
+           $this->modelBelongsToClass = new NewsModel("blog", 3306, "localhost", "root", "michauu33");           
         }
         
         private function index()
@@ -57,6 +61,15 @@
             include('./Views/Menu.php');
             include("./Views/News/NewsShow.php");
             include("./Views/Foot.php");
+        }
+        
+        private function mobile()
+        {
+            if($this->modelBelongsToClass != null)
+                $this->modelBelongsToClass->getRecords($this->records);
+            $url = "./Views/News/NewsShow.php";
+            header("Location: ".$url);
+            //include("./Views/News/NewsShowMobile.php");
         }
         
         private function newcomment($id, $nick, $comment)

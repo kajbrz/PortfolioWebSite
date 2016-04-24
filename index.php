@@ -14,9 +14,8 @@
 <body>
  <div id="main">
 	  <?php
-	   
-		route($keys[0], $query);
-	   ?>
+	  	route($keys[0], $query);
+	  ?>
  </div>
 </body>
 </html>
