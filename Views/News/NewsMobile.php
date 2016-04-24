@@ -27,12 +27,13 @@
   $i = 0;
   while ($row = $this->records->fetch_assoc())
   {    
-    $jsonRec['news '.$i] = array('date' => date("Y/m/d",  $row['news_date']),
+    $jsonRec[$i] = array('date' => date("Y/m/d",  $row['news_date']),
       'text' => $row['news_text'], 'author' => $row['news_author']);
     $i++;
   }
   $jsonArray['messages'] = $jsonRec; 
   echo json_encode($jsonArray);
+  
 ?>
 
 
