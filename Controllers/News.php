@@ -21,8 +21,8 @@
                         break;
                     }
                     case 'mobile' :
-                    {
-                        $this->mobile();
+                    {                   
+                        $this->mobile($query[$keys[1]]);
                         break;
                     }
                 }
@@ -63,13 +63,12 @@
             include("./Views/Foot.php");
         }
         
-        private function mobile()
-        {
+        private function mobile($id)
+        {            
             if($this->modelBelongsToClass != null)
                 $this->modelBelongsToClass->getRecords($this->records);
-            $url = "./Views/News/NewsShow.php";
-            header("Location: ".$url);
-            //include("./Views/News/NewsShowMobile.php");
+            $url = "./Views/News/NewsMobile.php";
+            include("./Views/News/NewsMobile.php");
         }
         
         private function newcomment($id, $nick, $comment)
